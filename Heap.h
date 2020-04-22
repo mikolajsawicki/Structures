@@ -1,16 +1,13 @@
 #pragma once
 
 #include "MenuStructure.h"
+#include "BinaryTree.h"
 #include <string>
 
 class Heap
 	: public MenuStructure
+	, public BinaryTree
 {
-	private:
-		int* arr;
-		int arrLength;
-		int heapSize; 
-
 	public:
 		Heap();
 
@@ -49,7 +46,5 @@ class Heap
 		void MenuDelete();
 
 		void MenuAdd();
-
-		void MenuFind();
 };
 

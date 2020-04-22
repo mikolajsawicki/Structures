@@ -33,8 +33,7 @@ void List::Clear()
 	}
 }
 
-// Wczytuje tablicê z pliku i zwraca jej rozmiar.
-// Plik powinien byæ postaci [rozmiar][znak pojedynczego odstêpu][liczby rozdzielone znakiem pojedynczego odstêpu].
+
 int List::LoadFromFile(string file_name)
 {
 	ifstream file;
@@ -58,6 +57,8 @@ int List::LoadFromFile(string file_name)
 			file >> value;
 			Add(value);
 		}
+
+		return 1;
 	}
 	
 	return 0;

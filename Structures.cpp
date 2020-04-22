@@ -35,8 +35,7 @@ void menu(MenuStructure* structure, string info)
 		displayMenu(info);
 		opt = _getche();
 		cout << endl;
-		(*structure).Display();
-		cout << endl;
+		
 		switch (opt) {
 		case '1':
 			(*structure).MenuLoadFromFile();
@@ -50,6 +49,7 @@ void menu(MenuStructure* structure, string info)
 			break;
 
 		case '4':
+			cout << endl;
 			(*structure).MenuFind();
 			break;
 
@@ -58,13 +58,15 @@ void menu(MenuStructure* structure, string info)
 			break;
 
 		case '6': 
-			(*structure).Display();
 			break;
 
 		case '7': // nasza funkcja do eksperymentów (pomiary czasów i generowanie daneych) - nie będzie testowana przez prowadzącego 
 				  // można sobie tu dodać własne case'y
 			break;
 		}
+
+		(*structure).Display();
+		cout << endl;
 
 	} while (opt != '0');
 }

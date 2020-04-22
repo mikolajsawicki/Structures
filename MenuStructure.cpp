@@ -10,7 +10,6 @@ void MenuStructure::MenuLoadFromFile()
 	cout << " Podaj nazwe zbioru:";
 	cin >> file_name;
 	LoadFromFile(file_name);
-	Display();
 }
 
 void MenuStructure::MenuFind()
@@ -32,5 +31,4 @@ void MenuStructure::MenuGenerate()
 	cout << "Podaj ilosc elementow struktury: ";
 	cin >> value;
 	Generate(value, 0, 5000);
-	Display();
 }

@@ -1,10 +1,7 @@
-﻿  Array.cpp
-  Heap.cpp
-  List.cpp
-  MenuStructure.cpp
+﻿  Heap.cpp
   Structures.cpp
 C:\Users\mscod\source\repos\Structures\Structures.cpp(32,13): warning C4101: "value": lokalna zmienna, do której nie istnieje odwołanie
 C:\Users\mscod\source\repos\Structures\Structures.cpp(32,6): warning C4101: "index": lokalna zmienna, do której nie istnieje odwołanie
   Generowanie kodu...
-C:\Users\mscod\source\repos\Structures\Structures.cpp(75,12): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+C:\Users\mscod\source\repos\Structures\Structures.cpp(76,12): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
   Structures.vcxproj -> C:\Users\mscod\source\repos\Structures\Debug\Structures.exe

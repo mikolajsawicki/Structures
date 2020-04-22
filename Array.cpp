@@ -27,14 +27,14 @@ int Array::LoadFromFile(string file_name)
 	if (file.good())
 	{
 		if (!file.eof())
-			file >> this->size;
+			file >> size;
 
 		free(ptr);
-		ptr = (int*)malloc(this->size * sizeof(*ptr));
+		ptr = (int*)malloc(size * sizeof(*ptr));
 
 		int index = 0;
 
-		for (int i = 0; i < this->size; i++)
+		for (int i = 0; i < size; i++)
 		{
 			if (!file.eof())
 				file >> ptr[i];
@@ -59,21 +59,25 @@ void Array::Add(int index, int value)
 		return;
 
 	size++;
-	ptr = (int*)realloc(ptr, size * sizeof(*ptr));
+	ptr = (int*) realloc(ptr, size * sizeof(*ptr));
 
-	for (int i = size - 2; i >= index; i--)
-		ptr[i + 1] = ptr[i];
+	if (ptr)
+	{
+		for (int i = size - 2; i >= index; i--)
+			ptr[i + 1] = ptr[i];
 
-	ptr[index] = value;
+		ptr[index] = value;
+	}
 }
 
 // Szybsza metoda dodaj¹ca element na koniec tablicy.
 void Array::Add(int value)
 {
 	size++;
-	realloc(ptr, size * sizeof(*ptr));
+	ptr = (int*) realloc(ptr, size * sizeof(*ptr));
 
-	ptr[size - 1] = value;
+	if(ptr)
+		ptr[size - 1] = value;
 }
 
 void Array::Delete(int index)
@@ -85,7 +89,7 @@ void Array::Delete(int index)
 		ptr[i] = ptr[i + 1];
 
 	size--;
-	ptr = (int*)realloc(ptr, size * sizeof(*ptr));
+	ptr = (int*) realloc(ptr, size * sizeof(*ptr));
 }
 
 void Array::Display()
