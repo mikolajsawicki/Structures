@@ -147,3 +147,22 @@ void List::Generate(int size, int min, int max)
 	for(int i = 0; i < size; i++)
 		Add(min + rand() % (max - min + 1));
 }
+
+void List::MenuDelete()
+{
+	int value;
+	cout << " podaj wartosc:";
+	cin >> value;
+	Delete(value);
+}
+
+void List::MenuAdd()
+{
+	int index, value;
+	cout << " podaj index:";
+	cin >> index;
+	cout << " podaj wartosc:";
+	cin >> value;
+
+	Add(index, value);
+}

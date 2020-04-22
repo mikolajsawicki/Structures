@@ -1,9 +1,9 @@
 #pragma once
+#include "MenuStructure.h"
 #include <string>
 
-using namespace std;
-
 class Array
+	: public MenuStructure
 {
 private:
 	int size;
@@ -14,7 +14,7 @@ public:
 
 	~Array();
 
-	int LoadFromFile(string file_name);
+	int LoadFromFile(std::string file_name);
 
 	bool Contains(int val);
 
@@ -27,4 +27,8 @@ public:
 	void Display();
 
 	void Generate(int size, int min, int max);
+
+	void MenuDelete();
+
+	void MenuAdd();
 };

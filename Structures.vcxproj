@@ -152,12 +152,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Array.cpp" />
+    <ClCompile Include="Heap.cpp" />
     <ClCompile Include="List.cpp" />
+    <ClCompile Include="MenuStructure.cpp" />
     <ClCompile Include="Structures.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array.h" />
+    <ClInclude Include="Heap.h" />
     <ClInclude Include="List.h" />
+    <ClInclude Include="MenuStructure.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

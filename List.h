@@ -1,7 +1,7 @@
 #pragma once
-#include <string>
 
-using namespace std;
+#include "MenuStructure.h"
+#include <string>
 
 typedef struct ListNode {
 	int value;
@@ -10,6 +10,7 @@ typedef struct ListNode {
 } ListNode_t;
 
 class List
+	: public MenuStructure
 {
 	private:
 		ListNode* nil; // Wykorzystujemy model z wartownikiem. (Cormen)
@@ -19,7 +20,7 @@ class List
 
 		~List();
 
-		int LoadFromFile(string file_name);
+		int LoadFromFile(std::string file_name);
 
 		bool Contains(int val);
 
@@ -34,4 +35,8 @@ class List
 		void Generate(int size, int min, int max);
 
 		void Clear();
+
+		void MenuDelete();
+
+		void MenuAdd();
 };

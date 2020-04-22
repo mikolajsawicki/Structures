@@ -1,5 +1,10 @@
 #pragma once
+
+#include "MenuStructure.h"
+#include <string>
+
 class Heap
+	: public MenuStructure
 {
 	private:
 		int* arr;
@@ -29,7 +34,7 @@ class Heap
 
 		void Build();
 
-		int LoadFromFile(string file_name);
+		int LoadFromFile(std::string file_name);
 
 		int Find(int value);
 
@@ -40,5 +45,11 @@ class Heap
 		void Generate(int size, int min, int max);
 
 		void Clear();
+
+		void MenuDelete();
+
+		void MenuAdd();
+
+		void MenuFind();
 };
 

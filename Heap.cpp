@@ -129,8 +129,7 @@ void Heap::Exchange(int index_1, int index_2)
 	arr[index_2] = aux;
 }
 
-// Wczytuje tablicê z pliku i zwraca jej rozmiar.
-// Plik powinien byæ postaci [rozmiar][znak pojedynczego odstêpu][liczby rozdzielone znakiem pojedynczego odstêpu].
+// Wczytuje tablicê z pliku
 int Heap::LoadFromFile(string file_name)
 {
 	/*
@@ -155,6 +154,8 @@ int Heap::LoadFromFile(string file_name)
 			file >> value;
 			Add(value);
 		}
+
+		return 1;
 	}
 	*/
 	return 0;
@@ -201,4 +202,27 @@ void Heap::Generate(int size, int min, int max)
 	for (int i = 0; i < size; i++)
 		Add(min + rand() % (max - min + 1));
 	*/
+}
+
+void Heap::MenuDelete()
+{
+	int value;
+	cout << " podaj wartosc:";
+	cin >> value;
+	Delete(value);
+}
+
+void Heap::MenuAdd()
+{
+	int value;
+
+	cout << " podaj wartosc:";
+	cin >> value;
+
+	Add(value);
+}
+
+void Heap::MenuFind()
+{
+
 }

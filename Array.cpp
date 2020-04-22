@@ -3,6 +3,8 @@
 #include <cstdlib>
 #include <fstream>
 
+using namespace std;
+
 Array::Array()
 {
 	size = 0;
@@ -105,4 +107,23 @@ void Array::Generate(int size, int min, int max)
 
 	for (int i = 0; i < size; i++)
 		ptr[i] = min + rand() % (max - min + 1);
+}
+
+void Array::MenuDelete()
+{
+	int index;
+	cout << " podaj index:";
+	cin >> index;
+	Delete(index);
+}
+
+void Array::MenuAdd()
+{
+	int index, value;
+	cout << " podaj index:";
+	cin >> index;
+	cout << " podaj wartosc:";
+	cin >> value;
+
+	Add(index, value);
 }

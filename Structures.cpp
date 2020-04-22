@@ -2,6 +2,7 @@
 #include<string>
 #include<iostream>
 #include <ctime>
+#include "MenuStructure.h"
 #include "Array.h"
 #include "List.h"
 #include "Heap.h"
@@ -23,8 +24,8 @@ void displayMenu(string info)
 	cout << "Podaj opcje:";
 }
 
-template <class _structure>
-void menu(_structure structure, string info)
+
+void menu(MenuStructure* structure, string info)
 {
 	char opt;
 	string fileName;
@@ -34,64 +35,31 @@ void menu(_structure structure, string info)
 		displayMenu(info);
 		opt = _getche();
 		cout << endl;
+		(*structure).Display();
+		cout << endl;
 		switch (opt) {
-		case '1': // wczytytwanie z pliku
-			cout << " Podaj nazwe zbioru:";
-			cin >> fileName;
-			structure.LoadFromFile(fileName);
-			structure.Display();
+		case '1':
+			(*structure).MenuLoadFromFile();
+			break;
+		case '2':
+			(*structure).MenuDelete();
 			break;
 
-		case '2': // usuwanie elementu
-			if (typeid(_structure) == typeid(Array))
-			{
-				cout << " podaj index:";
-				cin >> index;
-				structure.Delete(index);
-			}
-			else if (typeid(_structure) == typeid(List) || typeid(_structure) == typeid(Heap))
-			{
-				cout << " podaj wartosc:";
-				cin >> value;
-				structure.Delete(value);
-			}
-			
-			structure.Display();
+		case '3':
+			(*structure).MenuAdd();
 			break;
 
-		case '3': // dodawanie elemetu
-			if (typeid(_structure) == typeid(Array) || typeid(_structure) == typeid(List) || typeid(_structure) == typeid(Heap))
-			{
-				cout << " podaj index:";
-				cin >> index;
-				cout << " podaj wartosc:";
-				cin >> value;
-
-				structure.Add(index, value);
-			}
-			
-			structure.Display();
+		case '4':
+			(*structure).MenuFind();
 			break;
 
-		case '4': // znajdowanie elemetu
-			cout << " podaj wartosc:";
-			cin >> value;
-			if (structure.Contains(value))
-				cout << "Podana wartosc jest w strukturze.";
-			else
-				cout << "Podanej wartości NIE ma w strukturze.";
-
-			cout << endl;
+		case '5':
+			(*structure).MenuGenerate();
 			break;
 
-		case '5':  // generowanie  tablicy
-			cout << "Podaj ilosc elementow struktury: ";
-			cin >> value;
-			structure.Generate(value, 0, 5000);
-			structure.Display();
-			break;
 		case '6': 
-			structure.Display();
+			(*structure).Display();
+			break;
 
 		case '7': // nasza funkcja do eksperymentów (pomiary czasów i generowanie daneych) - nie będzie testowana przez prowadzącego 
 				  // można sobie tu dodać własne case'y
@@ -106,9 +74,9 @@ int main(int argc, char* argv[])
 {
 	srand(time(NULL));
 
-	Array array;
-	List list;
-	Heap heap;
+	MenuStructure* array = new Array;
+	MenuStructure* list = new List;
+	MenuStructure* heap = new Heap;
 
 	char option;
 	do {
