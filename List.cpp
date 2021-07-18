@@ -46,7 +46,7 @@ int List::LoadFromFile(string file_name)
 
 		Clear();
 
-		// chcemy pomin¹æ pierwsz¹ liczbê - jest to niepotrzebna dla nas wielkoœæ
+		// Chcemy pominąć pierwszą liczbę - jest to niepotrzebna nam wielkość
 		if(!file.eof())
 			file >> null_stream;
 
@@ -79,7 +79,6 @@ bool List::Contains(int val)
 	return false;
 }
 
-// Przy³¹czenie elementu na koniec listy
 void List::Add(int value)
 {
 	ListNode* node = new ListNode;
@@ -91,7 +90,7 @@ void List::Add(int value)
 	(*nil).prev = node;
 }
 
-// Przy³¹czanie na wskazan¹ pozycjê
+
 void List::Add(int index, int value)
 {
 	ListNode* node = new ListNode;
